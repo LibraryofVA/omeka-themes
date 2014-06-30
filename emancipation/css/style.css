@@ -1936,18 +1936,6 @@ table {
 
 
 /*Emancipation Specific Edits*/
-/*
-#primary-nav #exhibit-pages ul {
-    margin-bottom: 0;
-  }
-#primary-nav #exhibit-pages a:hover {
-    font-weight: normal;
-	}
-#primary-nav #exhibit-pages ul {
-	font-size:1em;
-	}
-*/
-/*#exhibit-pages #secondary-nav li a.exhibit-title { display:none; }*/
 #exhibit-nav {
     float: left;
 	width:25.2632%;
@@ -1988,3 +1976,16 @@ table {
 		#exhibit-nav #secondary-nav li a:hover {
 			color:#1e1b1d;
 			}
+footer #footer-text {
+	margin-top: 1em;
+	}
+	footer #footer-text p {
+		margin-top:0;
+		}
+footer #footer-text ul.navigation {
+    width: auto;
+    text-align: right;
+	}
+	footer #footer-text ul.navigation li {
+		display:inline;
+	}
