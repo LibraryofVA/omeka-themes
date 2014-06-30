@@ -10,6 +10,7 @@
             <?php if ((get_theme_option('Display Footer Copyright') == 1) && $copyright = option('copyright')): ?>
                 <p><?php echo $copyright; ?></p>
             <?php endif; ?>
+            <?php echo public_nav_main(array('role' => 'navigation')); ?>
             <p><?php echo __('Proudly powered by <a href="http://omeka.org">Omeka</a>.'); ?></p>
         </div>
 
