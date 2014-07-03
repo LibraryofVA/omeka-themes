@@ -1,20 +1,26 @@
+<?php 
+queue_js_file('lightbox.min', 'javascripts/vendor');
+queue_css_file('lightbox');
+?>
 <?php echo head(array('title' => metadata('item', array('Dublin Core', 'Title')),'bodyclass' => 'item show')); ?>
 
 <h1><?php echo metadata('item', array('Dublin Core', 'Title')); ?></h1>
-
-<?php echo all_element_texts('item'); ?>
 
 <!-- The following returns all of the files associated with an item. -->
 <?php if (metadata('item', 'has files')): ?>
 <div id="itemfiles" class="element">
     <h3><?php echo __('Files'); ?></h3>
     <?php if (get_theme_option('Item FileGallery') == 1): ?>
-    <div class="element-text"><?php echo item_image_gallery(); ?></div>
+    <div class="element-text"><?php echo item_image_gallery(array('link'=>array('data-lightbox'=>'lightbox'))); ?></div>
     <?php else: ?>
     <div class="element-text"><?php echo files_for_item(); ?></div>
     <?php endif; ?>
 </div>
 <?php endif; ?>
+
+<?php echo all_element_texts('item'); ?>
+
+
 
 <!-- If the item belongs to a collection, the following creates a link to that collection. -->
 <?php if (metadata('item', 'Collection Name')): ?>
