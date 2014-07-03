@@ -1,4 +1,4 @@
-<?php 
+<?php
 queue_js_file('lightbox.min', 'javascripts/vendor');
 queue_css_file('lightbox');
 ?>
@@ -19,7 +19,6 @@ queue_css_file('lightbox');
 <?php endif; ?>
 
 <?php echo all_element_texts('item'); ?>
-
 
 
 <!-- If the item belongs to a collection, the following creates a link to that collection. -->
