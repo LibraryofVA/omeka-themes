@@ -58,7 +58,8 @@
             
         <div id="wrap">
             <div id="exhibit-nav">
-                <ul>
+                <div class="exhibit-title"><a href="/online-exhibitions/exhibits/show/remaking-virginia">Remaking Virginia: Transformation Through Emancipation</a></div>
+                <ul id="secondary-nav" class="exhibit-page-nav navigation">
                     <?php set_exhibit_pages_for_loop_by_exhibit(); ?>
                     <?php foreach (loop('exhibit_page') as $exhibitPage): ?>
                     <?php echo exhibit_builder_page_summary($exhibitPage); ?>
