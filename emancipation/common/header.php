@@ -58,7 +58,12 @@
             
         <div id="wrap">
             <div id="exhibit-nav">
-				<?php echo exhibit_builder_top_page_nav();?>
+                <ul>
+                    <?php set_exhibit_pages_for_loop_by_exhibit(); ?>
+                    <?php foreach (loop('exhibit_page') as $exhibitPage): ?>
+                    <?php echo exhibit_builder_page_summary($exhibitPage); ?>
+                    <?php endforeach; ?>
+                </ul>
             </div>
             <div id="content">
                 <?php fire_plugin_hook('public_content_top', array('view'=>$this)); ?>
