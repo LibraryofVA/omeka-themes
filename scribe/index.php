@@ -20,7 +20,10 @@ error_reporting(E_ALL);
     foreach ($collectionIDs as $collectionID) {
       
       $collection = get_collection_by_id($collectionID);
-      $collection_link = link_to_collection($collectionTitle, array(), 'show', $collection);
+	  $collectionName = collection('name', array(), $collection);
+      //$collection_link = link_to_collection($collectionTitle, array(), 'show', $collection);
+	  $collection_link = browsealllink_to_collection($collectionTitle, array(), 'show', $collection);
+	  
       $collection_items = get_items(array('sort_field' => 'Dublin Core,Audience','sort_dir' => 'a','collection' => $collection['id']),9000);
       $num_of_collection_items = count($collection_items); 
       set_items_for_loop($collection_items);
@@ -32,7 +35,7 @@ error_reporting(E_ALL);
                                                   'link'=>item_uri(), 'name'=>item('Dublin Core', 'Title')));
       }
                 
-      echo '<h1 style="display: inline;">' .$collection_link. '</h1>';
+      echo '<h1 style="display: inline;">' . $collectionName . '</h1>' . $collection_link;
       echo '<hr style="visibility: hidden; margin-top: 2px; margin-bottom: 4px;" />';
       echo '<ul id="collection'.$div_counter.'" class="slider">';
 
