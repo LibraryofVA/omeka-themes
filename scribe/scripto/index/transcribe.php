@@ -16,7 +16,7 @@ jQuery(document).ready(function() {
     
     // Handle edit transcription page.
     jQuery('#scripto-transcription-page-edit').click(function() {
-        jQuery('#scripto-transcription-page-edit').prop('disabled', true).text('Editing transcription...');
+        jQuery('#scripto-transcription-page-edit').prop('disabled', true).text('Saving transcription...');
         jQuery.post(
             <?php echo js_escape(uri('scripto/index/page-action')); ?>, 
             {
@@ -27,7 +27,7 @@ jQuery(document).ready(function() {
                 wikitext: jQuery('#scripto-transcription-page-wikitext').val()
             }, 
             function(data) {
-                jQuery('#scripto-transcription-page-edit').prop('disabled', false).text('Edit transcription');
+                jQuery('#scripto-transcription-page-edit').prop('disabled', false).text('Save transcription');
                 jQuery('#scripto-transcription-page-html').html(data);
             }
         );
@@ -272,15 +272,13 @@ jQuery(document).ready(function() {
 <?php
     $page_id = $this->doc->getId();
     set_current_item(get_item_by_id($page_id));
-    $collection = get_collection_for_item();
-    $collection_link = link_to_collection_for_item();
 ?>
 
 <?php $base_dir = basename(getcwd()); ?>
 <div id="primary">
     <ul class="breadcrumb">
         <li><a href="/<?php echo $base_dir; ?>">Home</a><span class="divider">/</span></li>
-        <li><?php echo $collection_link; ?><span class="divider">/</span></li>
+        <li><?php echo link_to_collection_for_item($collection->name, array('id' => 'item-collection-link',)); ?><span class="divider">/</span></li>
         <li><a href="<?php echo uri(array('controller' => 'items', 'action' => 'show', 'id' => $this->doc->getId()), 'id'); ?>"><?php echo $this->doc->getTitle(); ?></a><span class="divider">/</span></li>
         <li><?php echo $this->fileMetadata($file, 'Dublin Core', 'Title'); ?></li>
     </ul>
@@ -290,13 +288,15 @@ jQuery(document).ready(function() {
             <div><strong><?php echo $this->fileMetadata($file, 'Dublin Core', 'Title'); ?></strong></div>
             <div>image <?php echo html_escape($this->paginationUrls['current_page_number']); ?> of <?php echo html_escape($this->paginationUrls['number_of_pages']); ?></div>
             <div>
-                <?php //echo $this->fileMetadata($file, 'Dublin Core', 'Source'); ?>
+                <?php if ($this->doc->getIsReferencedBy()):echo "more information: <a href=\"" . $this->doc->getIsReferencedBy() . "\" target=\"_blank\">digital collection</a>"; else: endif;
+				//echo $this->fileMetadata($file, 'Dublin Core', 'Source'); ?>
                 <?php //echo item('Dublin Core', 'Relation'); ?>
             </div>
 
         </div>
         <div class="row" style="margin-left: 0px;">
             <?php echo display_file($this->file); ?>
+            <div>Zoom in to read each word clearly. Some images may have writing in several directions. To rotate an image, hold down shift-Alt and use your mouse to spin the image so it is readable.</div>
             <div style="margin-left: 0px;">
                 <div id="scripto-transcription">
                     <?php if ($this->doc->canEditTranscriptionPage()): ?>
@@ -321,16 +321,15 @@ jQuery(document).ready(function() {
                             </div>
                             <?php endif; ?>
                         <div id="formbuttonscanedit">
-                            <?php echo $this->formButton('scripto-transcription-page-edit','Save edits', array('class' => 'btn btn-primary')); ?> 
+                            <?php echo $this->formButton('scripto-transcription-page-edit','Save transcription', array('class' => 'btn btn-primary')); ?> 
                             <?php if ($this->scripto->canProtect()): ?><?php echo $this->formButton('scripto-transcription-page-protect','Approve', array('class' => 'btn btn-primary')); ?> <?php endif; ?>
                             <?php if ($this->scripto->isLoggedIn()): ?><?php echo $this->formButton('scripto-page-watch', 'Watch', array('class' => 'btn btn-primary')); ?> <?php endif; ?>                 
                         </div><!--formbuttonscanedit-->
                         <div id="navbuttonscanedit">
                             <?php $all_images = uri(array('controller' => 'items', 'action' => 'show', 'id' => $this->doc->getId()), 'id'); ?>
-                            <?php if (isset($this->paginationUrls['previous'])): ?><a><button type="submit" class="btn btn-mini nav-btn" onClick="parent.location='<?php echo html_escape($this->paginationUrls['previous']); ?>'">prev</button></a><?php else: ?><button type="submit" class="btn btn-mini">prev</button><?php endif; ?>
-                            |  <?php if (isset($this->paginationUrls['next'])): ?><a><button type="submit" class="btn btn-mini nav-btn" onClick="parent.location='<?php echo html_escape($this->paginationUrls['next']); ?>'">next</button></a><?php else: ?><button type="submit" class="btn btn-mini">next</button><?php endif; ?>
-                            |  <a><button class="btn btn-mini nav-btn" onClick="parent.location='<?php echo $all_images; ?>'">all images</button></a>
-                            |  <a><button class="btn btn-mini nav-btn" onClick="parent.location='<?php echo html_escape(uri(array('item-id' => $this->doc->getId(), 'file-id' => $this->doc->getPageId(), 'namespace-index' => 0), 'scripto_history')); ?>'">history</button></a>
+                            <?php if (isset($this->paginationUrls['previous'])): ?><a><button type="submit" class="btn btn-mini nav-btn" onClick="parent.location='<?php echo html_escape($this->paginationUrls['previous']); ?>'">prev page</button></a><?php endif; ?>
+                            <?php if (isset($this->paginationUrls['next'])): ?>| <a><button type="submit" class="btn btn-mini nav-btn" onClick="parent.location='<?php echo html_escape($this->paginationUrls['next']); ?>'">next page</button></a><?php endif; ?>
+                            <?php if (html_escape($this->paginationUrls['number_of_pages']) > 1):?>| <a><button class="btn btn-mini nav-btn" onClick="parent.location='<?php echo $all_images; ?>'">all pages</button></a><?php endif; ?>
                         </div><!--navbuttonscanedit-->
                         </div><!--scripto-transcription-edit-->
                     <?php else: ?>
