@@ -26,7 +26,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .masthead {
     margin-bottom: 0px;
-    height: 100px; 
+    /*height: 100px; */
     padding: 10;
     background-image: url(../images/background.gif);
 }
@@ -48,9 +48,9 @@ h1, h2, h3, h4, h5, h6 {
 
 #sublinks ul {  margin: 0; float: right; }
         
-#sublinks a { color: #6A231F; font-size: .9em; font-weight: bold; }
+#sublinks a { color: #fff; font-size: .9em; font-weight: bold; }
+#sublinks a:hover { color: #777; }
 #content { background-color: #fff; padding: 10px 20px; margin-top: 20px; }
-h2 { color: #6A231F; }
 h2 { color: #6A231F; }
 
 /* Slideshow */
@@ -191,33 +191,18 @@ h2 { color: #6A231F; }
     -ms-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
+.thumbnails li .thumbnail a:hover {
+	text-decoration:none;
+	}
+.thumbnails li .thumbnail a img {
+	max-width:100%;
+	}
 
 /* Footer */
 
 .footer {
     background: #F8F8F8;
     padding: 0px 0;
-}
-
-.footer h3 {
-    margin-bottom: 10px;
-}
-
-.footer a {
-    color: #888;
-}
-
-.footer a:hover {
-    color: #666;
-}
-
-.footer ul.footer-nav {
-    list-style: none;
-    margin: 0;
-}
-
-.footer ul.footer-nav li {
-    line-height: 2;
 }
 
 /* Carousel items - change these to suit your needs */
@@ -407,6 +392,10 @@ td img {
 .bx-prev:hover {
     background-position: 0 0;
 }
+.bx-next:focus,
+.bx-prev:focus {
+	outline:none;
+	}
 
 /*pager links hover and active states*/
 .bx-pager .pager-active,
@@ -457,7 +446,7 @@ td img {
     margin: 0px;
 }
 
-#header { height: 100px; background-color: #FFF; margin: 0; padding: 0; background-image: url(../images/background.gif); }
+#header { /*height: 100px;*/ background-color: #FFF; margin: 0; padding: 0; background-image: url(../images/background.gif); }
 
 a {color: #6A231F;}
 a:hover { color: #6A231F; text-decoration: underline; }
@@ -496,6 +485,7 @@ hr {
     color: #e2e5ce;
     background-color: #e2e5ce;
     height: 10px;
+	margin-top:0;
 }
 
 .btn-primary {
@@ -577,3 +567,126 @@ hr {
     list-style-type:square;
 }
 
+#about h2 {
+    font-size: 1.2em;
+    margin: 0;
+    padding: 0 0 7px;
+	font-weight:bold;
+}
+#about #footer p {text-align:center;}
+
+/* DIY History footer */
+.bar-linda {
+    border-right: 2px solid #E2E5CE;
+    height: 300px;
+}
+.row-linda {
+    background-color: #FFFFFF;
+    margin-left: 0;
+}
+.row-linda:before, .row-linda:after {
+    content: "";
+    display: table;
+    line-height: 0;
+}
+.row-linda:after {
+    clear: both;
+}
+.row-linda {
+    height: 85px;
+    margin: 0 0 10px;
+    padding: 0;
+}
+.row-linda h3 {
+    color: #990000;
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+.row-linda li {
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0;
+}
+.row2 {
+    background-color: #FFFFFF;
+    height: 250px;
+    margin-left: 0;
+    margin-top: 10px;
+}
+.row2:before, .row2:after {
+    content: "";
+    display: table;
+    line-height: 0;
+}
+.row2:after {
+    clear: both;
+}
+.row2 {
+    margin: 0 0 10px;
+    padding: 0;
+}
+.row2 h3 {
+    color: #990000;
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+.row2 li {
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0;
+}
+.span3-linda {
+    height: 300px;
+    width: 200px;
+}
+.span3-linda ul {
+    color: #6A231F;
+    list-style: none outside none;
+    margin-left: 0;
+}
+.footer a {
+	color: #6A231F;
+}
+#creditfooter {
+    display: none;
+}
+.twitter li {
+    height: 60px;
+    line-height: normal;
+    margin-bottom: 20px;
+    margin-left: -25px;
+    overflow: hidden;
+}
+.news li {
+    margin-bottom: 10px;
+}
+.about li {
+    padding-bottom: 10px;
+}
+.contribute li {
+    padding-bottom: 12px;
+}
+
+.olLayerDiv img {
+	max-width:none;
+	}
+	
+/* Dublin Core fields listing */
+.dublin_field_title {
+	font-family:"Oxygen",sans-serif;
+	font-weight:normal;
+	margin-bottom:7px;
+	font-size:24px;
+	line-height:32px;
+	}
+.dublin_field_detail {
+	font-family:"Oxygen",sans-serif;
+	font-weight:normal;
+	font-size:16px;
+	line-height:24px;
+	margin-left:12px;
+	}
