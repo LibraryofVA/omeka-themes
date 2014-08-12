@@ -451,7 +451,7 @@ td img {
 a {color: #6A231F;}
 a:hover { color: #6A231F; text-decoration: underline; }
 
-body { background-color: #e2e5ce;}
+body { background-color: #ddd;}
 
 /*header { margin-top: 10px; }*/
 
@@ -482,8 +482,9 @@ iframe { width: 100%; height: 30%; }
 }
 
 hr {
-    color: #e2e5ce;
-    background-color: #e2e5ce;
+    color: #ddd;
+    background-color: #ddd;
+	border-color: #ddd;
     height: 10px;
 	margin-top:0;
 }
