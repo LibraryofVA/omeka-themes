@@ -312,9 +312,13 @@ jQuery(document).ready(function() {
                                 <br />
                             </div>
                             <?php else: ?>
-                                <div class="alert alert-info">
-                                    <strong>This item is editable!</strong>
-                                </div><!--alert alert-info-->
+								<strong>Enter your transcription below:</strong>
+                                <ul class="tips">
+                                    <li>Copy the text as is, including misspellings and abbreviations.</li>
+                                    <li>No need to account for formatting (e.g. spacing, line breaks, alignment); the goal is to provide text for searching.</li>
+                                    <li>If you can't make out a word, enter "[illegible]"; if uncertain, indicate with square brackets, e.g. "[town?]"</li>
+                                    <li><a href="http://www.virginiamemory.com/transcribe/about#tips">View more transcription tips</a></li>
+                                </ul>
                                 <div>
                                     <?php echo $this->formTextarea('scripto-transcription-page-wikitext', $this->doc->getTranscriptionPageWikitext(), array('cols' => '76', 'rows' => '6', 'class' => 'span11')); ?>
                                 </div>
@@ -353,6 +357,7 @@ jQuery(document).ready(function() {
                         </div><!--scripto-transcription-edit-->
                     </div>    
                     <?php endif; ?>
+                    <br />
                 </div><!--scripto-transcription-->
             </div><!--margin-left-->            
         </div><!--row-->
