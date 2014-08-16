@@ -575,6 +575,7 @@ hr {
 	font-weight:bold;
 }
 #about #footer p {text-align:center;}
+#code #footer p {text-align:center;}
 
 /* DIY History footer */
 .bar-linda {
@@ -643,6 +644,15 @@ hr {
 .span3-linda {
     height: 300px;
     width: 200px;
+}
+.span3-linda.about {
+	width:160px;
+}
+.span3-linda.connect {
+	padding-right:20px;
+}
+.span3-linda.connect #connected a img {
+	vertical-align:baseline;
 }
 .span3-linda ul {
     color: #6A231F;
