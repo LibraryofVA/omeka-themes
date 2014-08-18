@@ -229,11 +229,10 @@ h2 { color: #6A231F; }
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
 }
-
+#sublinks #header .dropdown .dropdown-menu a { color: #777; }
 .dropdown-menu li > a:hover,
 .dropdown-menu .active > a,
 .dropdown-menu .active > a:hover {
-
   background-color: #d5d5d5;
 }
 
