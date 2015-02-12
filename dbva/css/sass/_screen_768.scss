@@ -1,0 +1,257 @@
+/*
+Table of Contents
+=================
+-- Header
+-- Navigation
+----- Pagination
+-- Search
+-- Content
+-- Home
+-- Items
+-- Collections
+-- ExhibitBuilder
+*/
+
+/* !---------- Header ---------- */
+
+header {
+    @include pie-clearfix;
+}
+
+#site-title {
+    @include span-columns (8 alpha, 12);
+    text-align: left;
+    
+    &:after {
+        content: "";
+        display: block;
+        height: 0px;
+        clear: both;
+    }
+}
+
+
+
+/* !---------- Navigation --------- */
+
+nav.top {
+    ul { 
+        display: block; 
+        position: relative;
+        z-index: 1000;
+        li {
+            float: left;
+            width: auto;
+            position: relative;
+            
+            a { padding: rhythm(.5) 16px; }
+            
+            &:hover {
+                background-color:rgba(0,0,0,.25);
+                & > ul { display: block; }
+            }
+
+            ul {
+                min-width: 200px;
+                display: none;
+                padding: 0;
+                position: absolute;
+                top: rhythm(2);
+                left: 0px;
+                
+                li {
+                    width: 100%;
+                    clear: both;
+                    padding: 0;
+                    @include box-sizing(border-box);
+                    
+                    ul {
+                    position: absolute;
+                    left: 100%;
+                    top: 0;
+                    }
+                }
+            }
+        }
+    }
+    .mobile { display: none; }
+}
+
+
+    /* !---------- Pagination ---------- */
+
+    .pagination {
+        float: left;
+    }
+    
+    #content nav .pagination_list {
+        @include leader(.25);
+    }
+    
+
+
+/* !---------- Search ---------- */
+
+#search-container {
+    padding: 0;
+    @include span-columns(4 omega,12);
+    @include leader(1.25);
+    input { padding: rhythm(.3125) 8px; }
+}
+
+#search-results {
+    width: 100%;
+}
+
+#search-filters, #item-filters {
+    float: left;
+
+    li { 
+        float: left; 
+        ul { 
+            display: inline; 
+            padding: 0;
+            li {
+                float: none;
+            }
+        }
+    }
+}
+
+
+/* !---------- Content --------- */
+
+header, nav.top, #content, footer {
+    @include pie-clearfix;
+    @include prefix(1);
+    @include suffix(1);
+}
+
+.page #primary {
+    @include padding-leader(2);
+    @include padding-trailer(2);
+}
+
+#content #sort-links {
+    float: right;
+    text-align: center;
+}
+
+
+/* !---------- Home ---------- */
+
+#home #content {
+    #intro {
+        font-size: 1.5 * $base-font-size;
+        line-height: 1.5 * $base-line-height;
+          @include trailer(.75);
+        
+        p { margin: 0; }
+    }
+
+    #featured-item {
+        @include trailer();
+        @include span-columns(4 alpha, 12);
+        
+        .image {
+            display: inline-block;
+            width: 100%;
+            height: auto;
+        }
+        
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+    
+    & > div {
+        @include span-columns(8 omega, 12);
+    }
+}
+
+
+/* !---------- Items --------- */
+
+.items {
+    .item { clear: both;}
+        
+    #advanced-search-form {
+    
+        & > div {
+            @include span-columns(5 alpha, 8);
+            clear: both;
+        }
+        
+        & > div:last-of-type {
+            width: auto;
+        }
+    }
+}
+
+.show, .exhibit-item-show {
+    #primary {
+        @include span-columns (5 alpha, 8);
+    }
+    
+    #sidebar {
+        @include span-columns (3 omega, 8);
+                        
+    }
+}
+
+
+/* !---------- Collections ---------- */
+
+.collections.show {
+    #primary .element-set {
+        @include span-columns (5 alpha, 8);
+    }
+    
+    #primary > div {
+        @include span-columns(3 omega, 8);
+        clear: right;
+    }
+    
+    .item-img { margin-left: 0; }
+}
+
+/* !---------- ExhibitBuilder ---------- */
+
+.exhibits.summary {
+    #primary { 
+        @include span-columns(8 alpha, 12); 
+        padding: 0 16px rhythm();
+    }
+
+    #exhibit-pages { 
+        @include span-columns(4 omega, 12); 
+        @include box-sizing(border-box);
+    }
+}
+
+.exhibits.show #content {
+    .exhibit-page-nav {
+        & > li:first-child {
+            background-color: rgba(0,0,0,.1);
+            float: left;
+        }
+        
+        & > li:nth-child(2) li:first-of-type { padding-left: 8px; }
+    }
+
+    #exhibit-page-navigation {
+        .exhibits-nav-prev { text-align: left; }
+        
+        .exhibits-nav-next { text-align: right; }
+    
+        & > div { 
+            padding: 0; 
+            width: 33%;
+        }
+        
+        a, span { width: 100%; }
+    
+    }
+
+}
