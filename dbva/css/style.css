@@ -377,7 +377,7 @@
     position: relative;
   }
   .pagination_previous a:after, .pagination_next a:after {
-    font-family: "FontAwesome";
+    font-family: "MyFontAwesome";
     text-indent: 0;
     position: absolute;
     top: 0;
@@ -467,7 +467,7 @@
     text-indent: -9999px;
   }
   #search-form button:after {
-    font-family: "FontAwesome";
+    font-family: "MyFontAwesome";
     content: "\f002";
     position: absolute;
     left: 0;
@@ -740,7 +740,7 @@
 
   .asc a:after,
   .desc a:after {
-    font-family: "FontAwesome";
+    font-family: "MyFontAwesome";
     display: inline-block;
     margin-left: 3px;
   }
@@ -1023,7 +1023,7 @@
   }
   .remove_search:after {
     content: "\f00d";
-    font-family: "FontAwesome";
+    font-family: "MyFontAwesome";
     text-indent: 0;
     text-align: center;
     width: 100%;
@@ -1778,14 +1778,14 @@
 
   /* !---------- Autumn Styles ---------- */
   .autumn body {
-    background-color: #86443C;
-    color: #86443C;
+    background-color: #333;
+    color: #00a8cb;
   }
   .autumn h1, .autumn #site-title a {
     color: #F8F1E5;
   }
   .autumn input[type=submit], .autumn button, .autumn .button, .autumn #advanced-search {
-    background-color: #86443C;
+    background-color: #00a8cb;
   }
   .autumn input[type=text], .autumn input[type=password], .autumn textarea {
     background-color: #F8F1E5;
@@ -1801,7 +1801,7 @@
     color: #F16100;
   }
   .autumn header {
-    background-color: #CE6C3E;
+    background-color: #333;
   }
   .autumn nav.top {
     background-color: #CABFA6;
@@ -1833,7 +1833,7 @@
   .autumn .secondary-nav .current a,
   .autumn .secondary-nav a.current,
   .autumn .exhibit-section-nav .current a {
-    background-color: #F8F1E5;
+    background-color: #fff;
   }
   .autumn #home #content > div {
     border-color: #CABFA6;
@@ -1855,14 +1855,14 @@
     border-color: #CABFA6;
   }
   .autumn #content .pagination_previous a, .autumn #content .pagination_next a {
-    background-color: #86443C;
+    background-color: #00a8cb;
   }
   .autumn #content .pagination input[type=text] {
     border-color: #fff;
     background-color: #fff;
   }
   .autumn #content nav .pagination_list {
-    background-color: #86443C;
+    background-color: #00a8cb;
   }
   .autumn #content .item-img {
     border-color: #ECEBE6;
@@ -1884,13 +1884,13 @@
     border-color: #CABFA6;
   }
   .autumn footer {
-    background-color: #86443C;
+    background-color: #333;
   }
   .autumn footer p {
     color: #fff;
   }
   .autumn .exhibit-page-nav {
-    background-color: #86443C;
+    background-color: #00a8cb;
   }
   .autumn .exhibit-page-nav .current, .autumn .exhibit-child-nav .current {
     background-color: rgba(0, 0, 0, 0.1);
@@ -2334,3 +2334,4 @@
     width: 100%;
   }
 }
+
