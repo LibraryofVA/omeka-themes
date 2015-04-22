@@ -461,25 +461,24 @@ body { background-color: #ddd;}
 
 
  @media only screen and (max-width: 600px) and (min-width: 100px) {
-	.container { width: 100%; margin: 0; padding: 0; }
-	#header img { width: 100%; padding: 0; margin: 0; }
-	.span3 { width: 98%; height: 100%; }
-	.span4 { width: 98%; margin: 0; }
-	iframe { width: 100%; height: 30%; }
-	.twitter { height: 100%; }
-	.news { height: 100%; }
-	.bar { border: none; }
-	 [class*="span"] {
-	 float: left;
-	 margin-left: 0;
-	}
-	.row { text-align: center; margin: 0; padding: 0; }
-	.row2 { margin: 0; padding: 0; }
-	.row2 h3 { font-size: 1.2em; padding-left: 20px; }
-	.row2 ul { padding-left: 25px; }
-	.row2 li { font-size: 1.2em; }
+.container { width: 100%; margin: 0; padding: 0; }
+#header img { width: 100%; padding: 0; margin: 0; }
+.span3 { width: 98%; height: 100%; }
+.span4 { width: 98%; margin: 0; }
+iframe { width: 100%; height: 30%; }
+.twitter { height: 100%; }
+.news { height: 100%; }
+.bar { border: none; }
+ [class*="span"] {
+ float: left;
+ margin-left: 0;
 }
-
+.row { text-align: center; margin: 0; padding: 0; }
+.row2 { margin: 0; padding: 0; }
+.row2 h3 { font-size: 1.2em; padding-left: 20px; }
+.row2 ul { padding-left: 25px; }
+.row2 li { font-size: 1.2em; }
+}
 
 hr {
     color: #ddd;
@@ -701,23 +700,3 @@ hr {
 	line-height:24px;
 	margin-left:12px;
 	}
-	
-/* Side by Side transcription layout */
-#transcribePage div.container { width:100%; }
-@media screen and (min-width: 600px) {
-	#transcribePage div.container #scripto-openlayers { 
-		width:50%;
-		display:inline-block;
-	}
-	#transcribePage div.container .item-file {
-		display:inline-block;
-	}
-	#transcribePage div.container #scripto-transcription {
-		width:45%;
-		display:inline-block;
-		vertical-align:top;
-	}
-	#transcribePage div.container #scripto-transcription textarea.span11 {
-		width:100%;
-	}
-}
