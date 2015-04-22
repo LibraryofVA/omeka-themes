@@ -1,6 +1,6 @@
 <?php
 $title = $this->doc->getTitle();
-$head = array('title' => html_escape($title));
+$head = array('title' => html_escape($title), 'bodyid' => 'transcribePage');
 head($head);
 ?>
 
@@ -8,8 +8,8 @@ head($head);
 <?php echo js('jquery'); ?>
 
 <script type="text/javascript">
-jQuery(document).ready(function() {
-    //remove funky pre tags in output
+jQuery(document).ready(function() {	
+	//remove funky pre tags in output
     $("pre").wrapInner('<div>').find('div').unwrap();
 
     jQuery('#scripto-transcription-edit').slideDown(0);
@@ -296,12 +296,9 @@ jQuery(document).ready(function() {
         </div>
         <div class="row" style="margin-left: 0px;">
             <?php echo display_file($this->file); ?>
-            <div>Zoom in to read each word clearly. Some images may have writing in several directions. To rotate an image, hold down shift-Alt and use your mouse to spin the image so it is readable.</div>
-            <div style="margin-left: 0px;">
-                <div id="scripto-transcription">
+            <div id="scripto-transcription">
                     <?php if ($this->doc->canEditTranscriptionPage()): ?>
                         <div id="scripto-transcription-edit" class="content">
-                            <br />
                             <?php if ($this->doc->isProtectedTranscriptionPage()): ?>
                                 <div class="alert alert-error">
                                     <strong>This transcription is complete!</strong>
@@ -320,7 +317,7 @@ jQuery(document).ready(function() {
                                     <li><a href="http://www.virginiamemory.com/transcribe/about#tips">View more transcription tips</a></li>
                                 </ul>
                                 <div>
-                                    <?php echo $this->formTextarea('scripto-transcription-page-wikitext', $this->doc->getTranscriptionPageWikitext(), array('cols' => '76', 'rows' => '6', 'class' => 'span11')); ?>
+                                    <?php echo $this->formTextarea('scripto-transcription-page-wikitext', $this->doc->getTranscriptionPageWikitext(), array('cols' => '45', 'rows' => '9', 'class' => 'span11')); ?>
                                 </div>
                             </div>
                             <?php endif; ?>
@@ -358,8 +355,9 @@ jQuery(document).ready(function() {
                     </div>    
                     <?php endif; ?>
                     <br />
-                </div><!--scripto-transcription-->
-            </div><!--margin-left-->            
+            </div><!--scripto-transcription-->
+            <p>Zoom in to read each word clearly. Some images may have writing in several directions.<br/> To rotate an image, hold down shift-Alt and use your mouse to spin the image so it is readable.</p>
+ 
         </div><!--row-->
         <?php foot(); ?>
     </div><!--scripto-transcribe-->
