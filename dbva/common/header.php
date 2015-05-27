@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html class="<?php echo get_theme_option('Style Sheet'); ?>" lang="<?php echo get_html_lang(); ?>">
 <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE;" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php if ($description = option('description')): ?>
@@ -27,7 +28,7 @@
     queue_css_file('print', 'print');
     echo head_css();
     ?>
-
+    
     <!-- JavaScripts -->
     <?php queue_js_file('vendor/modernizr'); ?>
     <?php queue_js_file('vendor/selectivizr'); ?>
