@@ -15,6 +15,7 @@ set_loop_records('collections', $collections);
 		<div class="era">
 	        <?php echo link_to_collection($collectionImage, array('class' => 'image')); ?>
     	    <?php echo link_to_collection(); ?>
+            <?php echo "<br>".link_to_collection(metadata('collection', array('Dublin Core', 'Date'))); ?>
         </div>
     <?php endif; ?>
 <?php endforeach; ?>
@@ -24,7 +25,7 @@ set_loop_records('collections', $collections);
 <!-- Featured Item -->
 <div id="featured-item">
     <h2><?php echo __('Document Spotlight'); ?></h2>
-    <?php echo random_featured_items(1); ?>
+    <?php echo str_replace("/files/square_thumbnails/","/files/fullsize/",random_featured_items(1)); ?>
 </div><!--end featured-item-->
 <?php endif; ?>
 

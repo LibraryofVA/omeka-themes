@@ -13,7 +13,7 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'items browse'));
 
 <?php
 $sortLinks[__('Title')] = 'Dublin Core,Title';
-$sortLinks[__('Date Added')] = 'added';
+$sortLinks[__('Date')] = 'Dublin Core,Date';
 ?>
 <div id="sort-links">
     <span class="sort-label"><?php echo __('Sort by: '); ?></span><?php echo browse_sort_links($sortLinks); ?>
@@ -36,9 +36,14 @@ $sortLinks[__('Date Added')] = 'added';
         <?php echo $description; ?>
     </div>
     <?php endif; ?>
+    <?php if ($context = metadata('item', array('Item Type Metadata', 'Context'), array('snippet'=>250))): ?>
+    <div class="item-description">
+        <?php echo $context; ?>
+    </div>
+    <?php endif; ?>
 
     <?php if (metadata('item', 'has tags')): ?>
-    <div class="tags"><p><strong><?php echo __('Tags'); ?>:</strong>
+    <div class="tags"><p><strong><?php echo __('Themes'); ?>:</strong>
         <?php echo tag_string('items'); ?></p>
     </div>
     <?php endif; ?>
