@@ -17,7 +17,7 @@
 	<!-- Le styles -->
     <link href="http://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
-	
+
     <?php
 	queue_css('bootstrap');
 	queue_css('font-awesome');
@@ -26,7 +26,7 @@
 	display_css();
     $js_dir =  'http://'.$_SERVER['HTTP_HOST'] . '/' . basename(getcwd()) . '/themes/scribe/javascripts/';
 	?>
-    
+
     <!-- JavaScripts -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" charset="utf-8"></script>
@@ -35,19 +35,21 @@
 
 </head>
 
-<?php 
-    echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass)); 
+<?php
+    echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass));
     $base_dir = basename(getcwd());
     require_once getcwd().'/plugins/Scripto/libraries/Scripto.php';
     $scripto = ScriptoPlugin::getScripto();
-?>  
+?>
 
     <div class="container">
 
         <div id="sublinks" class="masthead clearfix">
 
             <div id="header">
-    
+                <div id="search-container">
+				  <?php echo simple_search(); ?>
+                </div><!-- end search -->
                 <ul class="nav nav-pills pull-right">
 
                     <?php if ($scripto->isLoggedIn()): ?>
@@ -63,14 +65,14 @@
                     <?php else: ?>
 
                     <li>
-                    <a href="/<?php echo $base_dir; ?>/scripto/login"><strong>Sign in or register</strong></a>                          
+                    <a href="/<?php echo $base_dir; ?>/scripto/login"><strong>Sign in or register</strong></a>
                     </li>
 
                     <?php endif; ?>
                 </ul>
-    
+
             <a href="/<?php echo $base_dir; ?>"><img src="<?php echo img('sub.png'); ?>" alt="Scribe: an Omeka theme" title="Scribe: an Omeka theme" width="939" height="188" border="0"></a>
-      </div>           
+      </div>
 
 </div><!-- end header -->
 <hr>

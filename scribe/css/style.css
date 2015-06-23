@@ -48,8 +48,30 @@ h1, h2, h3, h4, h5, h6 {
 
 #sublinks ul {  margin: 0; float: right; }
         
+/* special css for search box over sublinks */
+#header {
+	position:relative;
+}
+#sublinks #header ul {
+	float:none;
+	position:absolute;
+	top:3em;
+	right:1em;
+}
 #sublinks a { color: #fff; font-size: .9em; font-weight: bold; }
 #sublinks a:hover { color: #777; }
+
+/* search-container */
+#search-container {
+	float:right;
+}
+#search-container #simple-search {
+	margin:.5em;
+}
+#search-container #simple-search #search {
+	margin:0;
+}
+
 #content { background-color: #fff; padding: 10px 20px; margin-top: 20px; }
 h2 { color: #6A231F; }
 
